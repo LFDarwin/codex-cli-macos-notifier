@@ -5,6 +5,11 @@ macOS desktop notifications for Codex CLI, focused on the two moments that matte
 - a turn finishes
 - Codex needs your approval or manual input
 
+Chinese version:
+
+- [README.zh-CN.md](./README.zh-CN.md)
+- [IMPLEMENTATION_NOTES.zh-CN.md](./IMPLEMENTATION_NOTES.zh-CN.md)
+
 ## What this project does
 
 This project combines two notification paths because current Codex CLI behavior is split:
