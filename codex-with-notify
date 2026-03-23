@@ -1,0 +1,11 @@
+#!/bin/zsh
+set -euo pipefail
+
+SCRIPT_DIR="${0:A:h}"
+NOTIFY_SCRIPT="$SCRIPT_DIR/codex-notify.mjs"
+
+exec codex \
+  -c "notify=[\"node\",\"$NOTIFY_SCRIPT\"]" \
+  -c 'tui.notifications=["approval-requested","user-input-requested"]' \
+  -c 'tui.notification_method="auto"' \
+  "$@"
