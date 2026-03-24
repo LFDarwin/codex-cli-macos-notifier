@@ -28,6 +28,10 @@ So the implementation uses a hybrid design:
   Receives the JSON payload from Codex, normalizes the event, appends an optional local log, and sends a macOS notification.
 - `codex-with-notify`
   A wrapper that starts `codex` with the required config overrides.
+- `codex-ghostty-notify`
+  A Ghostty-specific wrapper for interactive Codex sessions. It tracks the launching Ghostty tab and sends notifications when approval or input requests stay pending while you are no longer on that tab.
+- `codex-ghostty-notify.mjs`
+  A local WebSocket proxy that sits between `codex --remote` and a local `codex app-server`, intercepts approval events, and applies Ghostty tab-aware notification rules.
 - `IMPLEMENTATION_NOTES.md`
   Design summary, tradeoffs, validation method, and lessons learned.
 
@@ -76,6 +80,36 @@ Or pass a prompt:
 ```bash
 /Users/liufei/Downloads/codex-desktop-notify/codex-with-notify "explain this repo"
 ```
+
+### Use the Ghostty tab-aware wrapper
+
+If you use Ghostty and want approval notifications even when Ghostty itself is still frontmost but you switched to another tab, use:
+
+```bash
+/Users/liufei/Downloads/codex-desktop-notify/codex-ghostty-notify
+```
+
+Optional alias:
+
+```bash
+alias cg='/Users/liufei/Downloads/codex-desktop-notify/codex-ghostty-notify'
+```
+
+Then start interactive Codex with:
+
+```bash
+cg
+```
+
+This wrapper:
+
+- starts a local `codex app-server`
+- starts `codex --remote` against a local proxy
+- captures approval and user-input requests from the app-server protocol
+- checks the currently selected Ghostty tab through AppleScript
+- sends a macOS notification whenever the request is still pending and you are no longer on the launching tab
+
+Plain `codex` is unchanged. It keeps the previous behavior.
 
 ### Use global Codex config
 
@@ -127,4 +161,7 @@ Expected result:
 
 - `approval-requested` currently does not reach the `notify` hook, so approvals cannot yet be handled by the same script path as completions.
 - approval notifications depend on terminal and macOS notification support while the terminal is unfocused.
-- if you want stronger approval alerts that do not depend on terminal behavior, the next step is an `app-server` bridge.
+- `codex-ghostty-notify` already uses a local `app-server` bridge for interactive Ghostty sessions, but plain `codex` still follows the simpler hook plus TUI design.
+- if you want the same tab-aware behavior in terminals other than Ghostty, the next step is a generalized `app-server` bridge that can detect session focus outside Ghostty.
+- `codex-ghostty-notify` is designed for interactive Ghostty sessions. For non-interactive commands such as `codex exec`, it falls back to plain `codex`.
+- the Ghostty wrapper relies on Ghostty AppleScript support. In Ghostty this is controlled by `macos-applescript`, which defaults to `true`.
