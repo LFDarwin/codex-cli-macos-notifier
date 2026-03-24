@@ -73,13 +73,13 @@ notification_method = "auto"
 ### 方式一：通过包装器启动
 
 ```bash
-/Users/liufei/Downloads/codex-desktop-notify/codex-with-notify
+/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-with-notify
 ```
 
 也可以直接传 prompt：
 
 ```bash
-/Users/liufei/Downloads/codex-desktop-notify/codex-with-notify "explain this repo"
+/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-with-notify "explain this repo"
 ```
 
 ### 方式二：Ghostty 标签页感知包装器
@@ -87,13 +87,13 @@ notification_method = "auto"
 如果你用的是 Ghostty，并且希望在 Ghostty 仍然是前台应用、但你已经切到了别的 tab 时，审批请求依然能提醒你，请使用：
 
 ```bash
-/Users/liufei/Downloads/codex-desktop-notify/codex-ghostty-notify
+/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-ghostty-notify
 ```
 
 推荐给它加一个 alias：
 
 ```bash
-alias cg='/Users/liufei/Downloads/codex-desktop-notify/codex-ghostty-notify'
+alias cg='/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-ghostty-notify'
 ```
 
 以后直接运行：
@@ -117,7 +117,7 @@ cg
 如果你想以后直接运行 `codex` 就生效，可以把下面内容写入 `~/.codex/config.toml`：
 
 ```toml
-notify = ["node", "/Users/liufei/Downloads/codex-desktop-notify/codex-notify.mjs"]
+notify = ["node", "/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-notify.mjs"]
 
 [tui]
 notifications = ["approval-requested", "user-input-requested"]
@@ -131,7 +131,7 @@ notification_method = "auto"
 ```bash
 CODEX_NOTIFY_LOG=/tmp/codex-notify.log \
 CODEX_NOTIFY_DISABLE_OSASCRIPT=1 \
-node /Users/liufei/Downloads/codex-desktop-notify/codex-notify.mjs \
+node /Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-notify.mjs \
   '{"type":"agent-turn-complete","turn-id":"demo-1","cwd":"/Users/liufei/Downloads","last-assistant-message":"Done."}'
 ```
 

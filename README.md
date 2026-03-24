@@ -75,13 +75,13 @@ This means:
 ### Use the wrapper
 
 ```bash
-/Users/liufei/Downloads/codex-desktop-notify/codex-with-notify
+/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-with-notify
 ```
 
 Or pass a prompt:
 
 ```bash
-/Users/liufei/Downloads/codex-desktop-notify/codex-with-notify "explain this repo"
+/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-with-notify "explain this repo"
 ```
 
 ### Use the Ghostty tab-aware wrapper
@@ -89,13 +89,13 @@ Or pass a prompt:
 If you use Ghostty and want approval notifications even when Ghostty itself is still frontmost but you switched to another tab, use:
 
 ```bash
-/Users/liufei/Downloads/codex-desktop-notify/codex-ghostty-notify
+/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-ghostty-notify
 ```
 
 Optional alias:
 
 ```bash
-alias cg='/Users/liufei/Downloads/codex-desktop-notify/codex-ghostty-notify'
+alias cg='/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-ghostty-notify'
 ```
 
 Then start interactive Codex with:
@@ -119,7 +119,7 @@ Plain `codex` is unchanged. It keeps the previous behavior.
 If you want plain `codex` to always notify, add this to `~/.codex/config.toml`:
 
 ```toml
-notify = ["node", "/Users/liufei/Downloads/codex-desktop-notify/codex-notify.mjs"]
+notify = ["node", "/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-notify.mjs"]
 
 [tui]
 notifications = ["approval-requested", "user-input-requested"]
@@ -133,7 +133,7 @@ notification_method = "auto"
 ```bash
 CODEX_NOTIFY_LOG=/tmp/codex-notify.log \
 CODEX_NOTIFY_DISABLE_OSASCRIPT=1 \
-node /Users/liufei/Downloads/codex-desktop-notify/codex-notify.mjs \
+node /Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-notify.mjs \
   '{"type":"agent-turn-complete","turn-id":"demo-1","cwd":"/Users/liufei/Downloads","last-assistant-message":"Done."}'
 ```
 

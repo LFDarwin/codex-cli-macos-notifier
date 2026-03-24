@@ -166,13 +166,13 @@ codex
 直接运行：
 
 ```bash
-/Users/liufei/Downloads/codex-desktop-notify/codex-ghostty-notify
+/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-ghostty-notify
 ```
 
 更推荐加一个 alias：
 
 ```bash
-alias cg='/Users/liufei/Downloads/codex-desktop-notify/codex-ghostty-notify'
+alias cg='/Users/liufei/Downloads/VibeCoding/codex-desktop-notify/codex-ghostty-notify'
 ```
 
 以后就直接：
