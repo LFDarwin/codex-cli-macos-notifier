@@ -9,6 +9,7 @@ Chinese version:
 
 - [README.zh-CN.md](./README.zh-CN.md)
 - [IMPLEMENTATION_NOTES.zh-CN.md](./IMPLEMENTATION_NOTES.zh-CN.md)
+- [PROJECT_CHANGE_SUMMARY.zh-CN.md](./PROJECT_CHANGE_SUMMARY.zh-CN.md)
 
 ## What this project does
 
@@ -34,6 +35,8 @@ So the implementation uses a hybrid design:
   A local WebSocket proxy that sits between `codex --remote` and a local `codex app-server`, intercepts approval events, and applies Ghostty tab-aware notification rules.
 - `IMPLEMENTATION_NOTES.md`
   Design summary, tradeoffs, validation method, and lessons learned.
+- `PROJECT_CHANGE_SUMMARY.zh-CN.md`
+  A Chinese project evolution summary that records the major changes, rationale, usage patterns, and lessons from this implementation process.
 
 ## How it works
 

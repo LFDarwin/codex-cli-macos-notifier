@@ -33,6 +33,8 @@
   英文版实现说明
 - `IMPLEMENTATION_NOTES.zh-CN.md`
   中文版实现说明
+- `PROJECT_CHANGE_SUMMARY.zh-CN.md`
+  这次项目从基础通知器到 Ghostty 标签页感知增强的完整中文总结
 
 ## 工作原理
 
